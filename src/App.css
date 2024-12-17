@@ -172,6 +172,27 @@
   border-radius: 25px; 
 }
 
+/* Responsif untuk Mobile */
+@media (max-width: 768px) {
+  .hero-img-container {
+    height: 90vh; 
+    min-height: 100vh; 
+  }
+
+  .hero-content h1 {
+    font-size: 2rem; 
+  }
+
+  .hero-content p {
+    font-size: 1rem; 
+  }
+
+  .hero-content .btn {
+    font-size: 0.9rem; 
+    padding: 8px 16px;
+  }
+}
+
 
 /*  */
 .category-card {
