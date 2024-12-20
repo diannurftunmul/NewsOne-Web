@@ -10,7 +10,7 @@ const savedSlice = createSlice({
     reducers: {
         saveNews: (state, action) => {
             const news = action.payload;
-            // Cek apakah berita sudah ada di savedNews
+
             if (!state.savedNews.some((item) => item.web_url === news.web_url)) {
                 state.savedNews.push(news);
                 localStorage.setItem('savedNews', JSON.stringify(state.savedNews));

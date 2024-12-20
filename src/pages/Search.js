@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { saveNews, unsaveNews } from '../features/saved/savedSlice';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NewsletterSubscription from '../components/NewsletterSub';
+import NewsCard from '../components/NewsCard';
 
 const Search = () => {
     // Mengambil parameter "query" dari URL
@@ -63,61 +64,11 @@ const Search = () => {
                 <div className="row">
                     {news.map((article, index) => (
                         <div className="col-md-4 mb-4" key={index}>
-                            <div className="card h-100 shadow-sm">
-                                {article.multimedia && article.multimedia[0] ? (
-                                    <img
-                                        src={`https://www.nytimes.com/${article.multimedia[0].url}`}
-                                        className="card-img-top limited-img"
-                                        alt={article.headline.main}
-                                    />
-                                ) : (
-                                    <img
-                                        src="/NewsOne.png"
-                                        className="card-img-top limited-img"
-                                        alt="Placeholder"
-                                    />
-                                )}
-                                <div className="card-body d-flex flex-column justify-content-between">
-                                    <div>
-                                        <h5 className="card-title">{article.headline.main}</h5>
-                                        <p className="card-text">
-                                            {article.abstract
-                                                ? article.abstract.length > 75
-                                                    ? `${article.abstract.substring(0, 75)}...`
-                                                    : article.abstract
-                                                : 'No Description.'}
-                                        </p>
-                                        <p className="card-text">
-                                            <small className="text-muted">
-                                                {article.byline && article.byline.original
-                                                    ? article.byline.original
-                                                    : 'Unknown Author'}
-                                            </small>
-                                        </p>
-                                        <p className="card-text">
-                                            <small className="text-muted">
-                                                Source: {article.source || 'Unknown Source'}
-                                            </small>
-                                        </p>
-                                    </div>
-                                    <div className="d-flex justify-content-between align-items-center mt-3">
-                                        <a
-                                            href={article.web_url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="btn btn-primary flex-grow-1 me-2"
-                                        >
-                                            Read More
-                                        </a>
-                                        <button
-                                            className={`btn ${isNewsSaved(article) ? 'btn-danger' : 'btn-success'} flex-grow-1`}
-                                            onClick={() => handleSaveUnsave(article)}
-                                        >
-                                            {isNewsSaved(article) ? 'Un-Save' : 'Save'}
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                            <NewsCard
+                                article={article}
+                                isSaved={isNewsSaved(article)}
+                                onSaveUnsave={() => handleSaveUnsave(article)}
+                            />
                         </div>
                     ))}
                 </div>

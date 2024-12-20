@@ -189,7 +189,7 @@
 /* Responsif untuk Mobile */
 @media (max-width: 768px) {
   .hero-img-container {
-    margin-top: 10vh;
+    margin-top: 8vh;
     height: 90vh;
   }
 
