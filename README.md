@@ -1,5 +1,5 @@
 # Visit My NewsOne Web Here!
-(https://news-one-web.vercel.app/)
+https://news-one-web.vercel.app/
 
 
 # Getting Started with Create React App
